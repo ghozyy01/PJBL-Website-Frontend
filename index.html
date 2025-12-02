@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wisata Riau</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins, sans-serif;
+}
+
+body{
+    background:#1d143d;
+    color:white;
+}
+
+header{
+    background:#120931;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #4e2a8e;
+}
+
+header h2{
+    font-size:26px;
+    text-shadow:0 0 12px #d12cff;
+}
+
+nav a{
+    margin:0 15px;
+    color:#d6c8ff;
+    text-decoration:none;
+    transition:0.3s;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:white;
+    text-shadow:0 0 10px #d12cff;
+}
+
+.login-btn{
+    padding:8px 18px;
+    background:#d12cff;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#b81fe0;
+    box-shadow:0 0 12px #d12cff;
+}
+
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:40px 40px;
+    gap:20px;
+}
+
+.hero-text{
+    max-width:50%;
+}
+
+.hero-text h1{
+    font-size:40px;
+    margin-bottom:12px;
+    text-shadow:0 0 12px #d12cff;
+}
+
+.hero-text p{
+    font-size:17px;
+    opacity:0.9;
+    margin-bottom:18px;
+}
+
+.btn{
+    background:#d12cff;
+    padding:12px 26px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#b81fe0;
+    box-shadow:0 0 18px #d12cff;
+}
+
+.hero img{
+    width:50%;
+    height:320px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+section{
+    padding:50px 40px;
+}
+
+section h2{
+    font-size:30px;
+    text-align:center;
+    text-shadow:0 0 12px #d12cff;
+    margin-bottom:10px;
+}
+
+.section-sub{
+    text-align:center;
+    opacity:0.8;
+    margin-bottom:25px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:25px;
+}
+
+@media(max-width:700px){
+    .grid{
+        grid-template-columns:repeat(1, 1fr);
+    }
+}
+
+.card{
+    background:#2b1f57;
+    padding:15px;
+    border-radius:16px;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 18px #d12cff;
+}
+
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.card h4{
+    font-size:20px;
+    margin-bottom:4px;
+}
+
+.card p{
+    font-size:14px;
+    opacity:0.8;
+    margin-bottom:10px;
+}
+
+.detail-btn{
+    display:inline-block;
+    background:#d12cff;
+    padding:8px 18px;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.detail-btn:hover{
+    background:#b81fe0;
+    box-shadow:0 0 15px #d12cff;
+}
+
+.save-btn{
+    display:inline-block;
+    background:#4ae371;
+    padding:8px 18px;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:14px;
+    margin-left:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.save-btn:hover{
+    background:#32c75a;
+    box-shadow:0 0 12px #4ae371;
+}
+
+.info{
+    background:#2b1f57;
+    margin-top:40px;
+    padding:25px;
+    border-radius:20px;
+    display:flex;
+    gap:25px;
+    box-shadow:0 0 14px rgba(0,0,0,0.3);
+}
+
+.info img{
+    width:45%;
+    height:260px;
+    border-radius:16px;
+    object-fit:cover;
+}
+
+.info-text{
+    width:55%;
+}
+
+.info-text h3{
+    font-size:24px;
+    margin-bottom:10px;
+    text-shadow:0 0 12px #d12cff;
+}
+
+.info-text p{
+    opacity:0.9;
+    line-height:1.6;
+}
+
+footer{
+    background:#120931;
+    padding:50px 20px;
+    color:white;
+    text-align:center;
+    margin-top:60px;
+    position:relative;
+    overflow:hidden;
+}
+
+footer::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:80%;
+    height:3px;
+    background:#d12cff;
+    box-shadow:0 0 15px #d12cff, 0 0 30px #d12cff;
+    border-radius:5px;
+}
+
+footer h3{
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:15px;
+    text-shadow:0 0 12px #d12cff;
+}
+
+footer .social-icons{
+    margin:15px 0;
+}
+
+footer .social-icons a{
+    margin:0 12px;
+    font-size:24px;
+    color:white;
+    text-decoration:none;
+    padding:10px;
+    border-radius:50%;
+    transition:0.3s ease;
+}
+
+footer .social-icons a:hover{
+    background:#d12cff;
+    box-shadow:0 0 15px #d12cff, 0 0 25px #d12cff;
+    transform:translateY(-4px);
+}
+
+footer p{
+    font-size:14px;
+    opacity:0.8;
+    margin-top:15px;
+}
+
+@media(max-width:850px){
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+    .hero-text{
+        max-width:100%;
+    }
+    .hero img{
+        width:100%;
+        height:250px;
+    }
+    .info{
+        flex-direction:column;
+    }
+    .info img,
+    .info-text{
+        width:100%;
+    }
+}
+
+.popup-bg{
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(3px);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.popup-box{
+    background:#2b1f57;
+    padding:25px;
+    width:320px;
+    border-radius:14px;
+    text-align:center;
+    box-shadow:0 0 15px #d12cff;
+    animation:fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
+
+.popup-box h2{
+    margin-bottom:15px;
+    text-shadow:0 0 10px #d12cff;
+}
+
+.popup-box input{
+    width:90%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+    outline:none;
+}
+
+.popup-box button{
+    width:95%;
+    padding:10px;
+    background:#d12cff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    margin-top:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.popup-box button:hover{
+    background:#b81fe0;
+}
+
+.close-btn{
+    margin-top:10px;
+    color:#ff6b6b;
+    cursor:pointer;
+    font-size:14px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="popup-bg" id="loginPopup">
+    <div class="popup-box">
+        <h2>Form Login</h2>
+        <input type="text" id="nama" placeholder="Masukkan Nama">
+        <input type="password" id="password" placeholder="Masukkan Password">
+        <button onclick="loginNow()">Login</button>
+        <div class="close-btn" onclick="closeLogin()">Tutup</div>
+    </div>
+</div>
+
+<header>
+    <h2>Wisata Riau</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#wisata">Wisata</a>
+        <a href="#sejarah">Sejarah</a>
+        <a href="#contact">Contact</a>
+        <a href="#kontak">Kontak</a> 
+    </nav>
+    <a class="login-btn">Login</a>
+</header>
+
+<div class="hero" id="home">
+    <div class="hero-text">
+        <h1>Jelajahi Keindahan Riau</h1>
+        <p>Temukan pesona alam, budaya, dan destinasi unik yang menanti untuk kamu eksplorasi.</p>
+        <a class="btn">Jelajahi Sekarang</a>
+    </div>
+    <img src="Danau.webp">
+</div>
+
+<section id="wisata">
+    <h2>Wisata Di Riau</h2>
+    <p class="section-sub">Temukan destinasi terbaik yang memukau.</p>
+
+    <div class="grid">
+
+        
+        <div class="card">
+            <img src="Pantai Rupat.jpg">
+            <h4>Pantai Rupat Utara</h4>
+            <p>Kabupaten Bengkalis</p>
+            <a class="detail-btn" data-target="rupat">Detail</a>
+            <a class="save-btn" data-name="Pantai Rupat Utara">💾 Simpan</a>
+        </div>
+
+        
+        <div class="card">
+            <img src="Rainbow Hills.webp">
+            <h4>Rainbow Hills Rumbai</h4>
+            <p>Pekanbaru</p>
+            <a class="detail-btn" data-target="rainbow">Detail</a>
+            <a class="save-btn" data-name="Rainbow Hills Rumbai">💾 Simpan</a>
+        </div>
+
+        
+        <div class="card">
+            <img src="PLTA.jpg">
+            <h4>PLTA Koto Panjang</h4>
+            <p>Kampar</p>
+            <a class="detail-btn" data-target="plta">Detail</a>
+            <a class="save-btn" data-name="PLTA Koto Panjang">💾 Simpan</a>
+        </div>
+
+        
+        <div class="card">
+            <img src="Mangrove.jpg">
+            <h4>Hutan Mangrove Mengkapan</h4>
+            <p>Kabupaten Siak</p>
+            <a class="detail-btn" data-target="mangrove">Detail</a>
+            <a class="save-btn" data-name="Hutan Mangrove Mengkapan">💾 Simpan</a>
+        </div>
+
+        
+        <div class="card">
+            <img src="Candi Muara Takus.jpg">
+            <h4>Candi Muara Takus</h4>
+            <p>Kampar</p>
+            <a class="detail-btn" data-target="muaratakus">Detail</a>
+            <a class="save-btn" data-name="Candi Muara Takus">💾 Simpan</a>
+        </div>
+
+        
+        <div class="card">
+            <img src="Istana.jpg">
+            <h4>Istana Siak Sri Indrapura</h4>
+            <p>Kabupaten Siak</p>
+            <a class="detail-btn" data-target="siak">Detail</a>
+            <a class="save-btn" data-name="Istana Siak Sri Indrapura">💾 Simpan</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="sejarah">
+    <h2>Wisata Sejarah Riau</h2>
+    <p class="section-sub">Kenali peninggalan budaya dan sejarah yang berharga.</p>
+
+    <div class="info" id="rupat">
+        <div class="info-text">
+            <h3>Pantai Rupat Utara</h3>
+            <p>Pantai Rupat Utara berada di Pulau Rupat, Kabupaten Bengkalis, Riau. Pantai ini dikenal dengan hamparan pasir putih yang sangat panjang—sekitar 17 kilometer—sehingga sering disebut sebagai salah satu pantai dengan garis pasir putih terpanjang di Indonesia. Rupat Utara mulai populer sejak awal tahun 2000-an, ketika pemerintah daerah mulai membuka akses transportasi laut yang lebih mudah dari Dumai.
+Selain keindahan alamnya, kawasan ini juga digunakan untuk tradisi budaya seperti Pesta Pantai dan kegiatan Balap Sampan. Pantai Rupat Utara kini berkembang menjadi destinasi unggulan, terutama bagi wisatawan yang ingin menikmati suasana pantai yang masih alami dan sepi.</p>
+        </div>
+        <img src="Pantai Rupat.jpg">
+    </div>
+
+
+    <div class="info" id="rainbow">
+        <div class="info-text">
+            <h3>Rainbow Hills Rumbai</h3>
+            <p>Rainbow Hills Rumbai, atau Bukit Pelangi, terletak di kawasan Rumbai, Kota Pekanbaru. Destinasi ini awalnya merupakan bukit tanah liat yang tergerus oleh air hujan sehingga membentuk kontur bukit berlapis-lapis dengan warna kuning, merah, coklat, hingga oranye. Keunikan warna-warni inilah yang membuat bukit ini dijuluki Rainbow Hills.
+Popularitasnya meningkat sekitar tahun 2016–2017 setelah banyak fotografer dan wisatawan mengunggah foto-fotonya ke media sosial. Meskipun bukan objek wisata resmi yang memiliki fasilitas lengkap, keindahan alamnya yang unik menjadikannya salah satu spot foto favorit di Pekanbaru.</p>
+        </div>
+        <img src="Rainbow Hills.webp">
+    </div>
+
+    <div class="info" id="plta">
+        <div class="info-text">
+            <h3>PLTA Koto Panjang</h3>
+            <p>PLTA (Pembangkit Listrik Tenaga Air) Koto Panjang terletak di Kabupaten Kampar, Riau. Bendungan ini dibangun melalui kerja sama Indonesia dan Jepang pada awal 1990-an sebagai proyek strategis untuk memenuhi kebutuhan listrik di Sumatra bagian tengah. Pengisian waduk dimulai pada tahun 1998, yang kemudian membentuk Danau PLTA Koto Panjang — danau buatan besar yang kini juga dimanfaatkan sebagai objek wisata.
+PLTA Koto Panjang bukan hanya infrastruktur listrik, tetapi juga memiliki peran dalam pengendalian banjir dan pengaturan aliran Sungai Kampar. Area sekitar waduk berkembang menjadi tempat wisata alam seperti spot memancing, area rekreasi, dan pemandangan matahari terbenam yang indah.</p>
+        </div>
+        <img src="PLTA.jpg">
+    </div>
+
+    <div class="info" id="mangrove">
+        <div class="info-text">
+            <h3>Hutan Mangrove Mengkapan</h3>
+            <p>Hutan Mangrove Mengkapan berada di Desa Mengkapan, Kecamatan Sungai Apit, Kabupaten Siak, Riau. Kawasan ini merupakan salah satu hutan mangrove terluas dan terjaga di Riau. Pengembangan wisata mangrove di Mengkapan mulai dilakukan sekitar tahun 2017 oleh masyarakat setempat dan pemerintah daerah sebagai upaya pelestarian ekosistem pesisir.
+Di dalamnya terdapat jembatan kayu panjang yang membawa pengunjung berkeliling hutan mangrove sambil menikmati udara segar dan keragaman hayati, termasuk burung-burung pesisir serta biota laut kecil. Hutan Mangrove Mengkapan menjadi contoh ekowisata berbasis masyarakat yang mendorong konservasi sekaligus memberikan manfaat ekonomi bagi warga.</p>
+        </div>
+        <img src="Mangrove.jpg">
+    </div>
+
+    <div class="info" id="muaratakus">
+        <div class="info-text">
+            <h3>Candi Muara Takus</h3>
+            <p>Candi Muara Takus adalah kompleks candi Buddha kuno di Desa Muara Takus, Kabupaten Kampar, Riau, yang diperkirakan berasal dari masa Kerajaan Sriwijaya pada abad ke-7 hingga ke-12 M. Kompleks ini terdiri dari Candi Tuo, Candi Mahligai, Candi Bungsu, dan Candi Palangka yang dibangun dari batu bata merah serta batu pasir. Bentuknya yang unik, terutama stūpa ramping Candi Mahligai, menjadi ciri khas yang tidak ditemukan di daerah lain. Selain sebagai pusat peribadatan pada masanya, kini Candi Muara Takus menjadi salah satu destinasi sejarah penting yang menunjukkan kejayaan Buddha di Sumatra.</p>
+        </div>
+        <img src="Candi Muara Takus.jpg">
+    </div>
+
+    <div class="info" id="siak">
+        <div class="info-text">
+            <h3>Istana Siak Sri Indrapura</h3>
+            <p>Istana Siak Sri Indrapura, atau Istana Asserayah Hasyimiah, adalah istana megah peninggalan Kesultanan Siak yang dibangun pada tahun 1893 oleh Sultan Syarif Hasyim di Kota Siak, Riau. Arsitekturnya memadukan gaya Melayu, Arab, dan Eropa, serta menyimpan berbagai koleksi bersejarah seperti mahkota kerajaan, senjata pusaka, dan alat musik komet buatan Jerman. Istana ini pernah menjadi pusat pemerintahan kerajaan Melayu terbesar di pesisir Sumatra pada abad ke-18 hingga awal abad ke-20. Kini, istana tersebut difungsikan sebagai museum dan menjadi ikon wisata sejarah paling terkenal di Riau.</p>
+        </div>
+        <img src="Istana.jpg">
+    </div>
+
+</section>
+
+<section id="kontak">
+    <h2>Kritik & Saran</h2>
+    <p class="section-sub">Masukan Anda sangat berarti untuk pengembangan website ini.</p>
+
+    <div class="info" style="flex-direction:column; max-width:600px; margin:auto;">
+        
+        <input id="kontak-nama" type="text" placeholder="Nama Anda" 
+               style="padding:12px; border-radius:10px; border:none; margin-bottom:10px; width:100%;">
+
+        <input id="kontak-email" type="email" placeholder="Email Anda"
+               style="padding:12px; border-radius:10px; border:none; margin-bottom:10px; width:100%;">
+
+        <textarea id="kontak-pesan" placeholder="Pesan / Kritik / Saran"
+               style="padding:12px; border-radius:10px; border:none; margin-bottom:10px; width:100%; height:130px;"></textarea>
+
+        <button onclick="kirimSaran()" 
+                style="padding:12px; border-radius:10px; background:#d12cff; border:none; color:white; font-weight:bold; cursor:pointer;">
+            Kirim Sekarang
+        </button>
+    </div>
+</section>
+
+<section id="contact">
+<footer>
+    <h3>Wisata Riau</h3>
+    <div class="social-icons">
+        <a href="https://github.com/ghozyy01" target="_blank">Github</a>
+        <a href="https://instagram.com/ghozyenno" target="_blank">Instagram</a>
+        <a href="https://wa.me/6285800166753" target="_blank">WhatsApp</a>
+    </div>
+    <p>© 2025 Wisata Riau. Semua hak dilindungi.</p>
+</footer>
+</section>
+
+<script>
+document.querySelectorAll(".detail-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+        const target = this.getAttribute("data-target");
+        const section = document.getElementById(target);
+        section.scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+document.querySelectorAll(".save-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+        const nama = this.getAttribute("data-name");
+        alert(nama + " berhasil disimpan!");
+    });
+});
+
+document.querySelector(".login-btn").addEventListener("click", function() {
+    document.getElementById("loginPopup").style.display = "flex";
+});
+
+function closeLogin(){
+    document.getElementById("loginPopup").style.display = "none";
+}
+
+function loginNow(){
+    let nama = document.getElementById("nama").value;
+    let pw = document.getElementById("password").value;
+
+    if(nama === "" || pw === ""){
+        alert("Nama dan Password wajib diisi!");
+    } else {
+        alert("Login Berhasil!\nSelamat datang, " + nama);
+        closeLogin();
+    }
+}
+
+function kirimSaran(){
+    let nama = document.getElementById("kontak-nama").value;
+    let email = document.getElementById("kontak-email").value;
+    let pesan = document.getElementById("kontak-pesan").value;
+
+    if(nama === "" || email === "" || pesan === ""){
+        alert("Semua form wajib diisi!");
+    } else {
+        alert("Terima kasih atas saran Anda! 😊");
+        document.getElementById("kontak-nama").value = "";
+        document.getElementById("kontak-email").value = "";
+        document.getElementById("kontak-pesan").value = "";
+    }
+}
+</script>
+
+</body>
+</html>
