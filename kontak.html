@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak – Wisata Riau</title>
+
+<style>
+body{
+    background:#1d143d;
+    color:white;
+    font-family:Poppins, sans-serif;
+    margin:0;
+}
+
+header{
+    background:#120931;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #4e2a8e;
+}
+
+header h2{
+    font-size:26px;
+    text-shadow:0 0 12px #d12cff;
+}
+
+nav a{
+    margin:0 15px;
+    color:#d6c8ff;
+    text-decoration:none;
+    transition:0.3s;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:white;
+    text-shadow:0 0 10px #d12cff;
+}
+
+.container{
+    max-width:650px;
+    margin:60px auto;
+    background:#2b1f57;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 0 18px rgba(0,0,0,0.3);
+}
+
+.container h2{
+    text-align:center;
+    font-size:30px;
+    text-shadow:0 0 12px #d12cff;
+    margin-bottom:10px;
+}
+
+.container p{
+    text-align:center;
+    opacity:0.8;
+    margin-bottom:20px;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#d12cff;
+    border:none;
+    border-radius:10px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#b81fe0;
+    box-shadow:0 0 15px #d12cff;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#d6c8ff;
+    text-decoration:none;
+}
+.back:hover{
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h2>Wisata Riau</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#wisata">Wisata</a>
+        <a href="index.html#sejarah">Sejarah</a>
+        <a href="kontak.html">Kontak</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Kritik & Saran</h2>
+    <p>Masukan Anda sangat berarti untuk pengembangan website ini.</p>
+
+    <input id="nama" type="text" placeholder="Nama Anda">
+    <input id="email" type="email" placeholder="Email Anda">
+    <textarea id="pesan" placeholder="Pesan atau Saran" rows="6"></textarea>
+
+    <button onclick="kirimSaran()">Kirim Sekarang</button>
+
+    <a class="back" href="index.html">← Kembali ke Beranda</a>
+</div>
+
+<script>
+function kirimSaran(){
+    let nama = document.getElementById("nama").value;
+    let email = document.getElementById("email").value;
+    let pesan = document.getElementById("pesan").value;
+
+    if(nama === "" || email === "" || pesan === ""){
+        alert("Semua form wajib diisi!");
+        return;
+    }
+
+    sessionStorage.setItem("kontak_nama", nama);
+    sessionStorage.setItem("kontak_email", email);
+    sessionStorage.setItem("kontak_pesan", pesan);
+
+    alert("Terima kasih atas saran Anda!");
+
+
+    document.getElementById("nama").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("pesan").value = "";
+}
+</script>
+
+</body>
+</html>
